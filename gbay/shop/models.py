@@ -12,9 +12,10 @@ class Product(models.Model):
         default=0.00,
         db_index=True
     )
+    amount = models.PositiveSmallIntegerField(default=1)
 
     def __unicode__(self):
-        return u"{}".format(self.title)
+        return u"{} ({})".format(self.title, self.amount)
 
 
 class Cart(models.Model):
@@ -37,7 +38,7 @@ class Cart(models.Model):
 
 
 class CartItem(models.Model):
-    cart = models.ForeignKey(Cart)
+    cart = models.ForeignKey(Cart, related_name='items', on_delete=models.CASCADE)
     product = models.ForeignKey(Product)
     count = models.IntegerField(default=0)
 

@@ -22,3 +22,11 @@ class CartViewSet(viewsets.ModelViewSet):
     """
     queryset = models.Cart.objects.all().order_by('-id')
     serializer_class = serializers.CartSerializer
+
+
+class CartItemViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows cart items to be viewed or edited.
+    """
+    queryset = models.CartItem.objects.all().order_by('-id')
+    serializer_class = serializers.CartItemsSerializer
