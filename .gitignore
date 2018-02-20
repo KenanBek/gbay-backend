@@ -1,6 +1,7 @@
-# IDE
+# IDE & sqlite
 
 .idea
+gbay/db.sqlite3
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
